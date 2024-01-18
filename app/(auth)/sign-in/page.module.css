@@ -1,0 +1,7 @@
+.container__sign_in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Set a height to center vertically */
+    background-color: #F9F9F9;
+}
