@@ -6,6 +6,7 @@
 import React, { useEffect, useState, lazy } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 /*
     Import Utils
@@ -13,6 +14,7 @@ import Image from 'next/image'
 import DateUtility  from '@/utils/date-utility'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, Button, Form } from 'react-bootstrap'
+
 
 /*
     Import Components
@@ -33,7 +35,8 @@ const ComponentSkeletonAuth = lazy(() => import('../../../components/auth/skelet
 })
 
 
-export default function SignIn({ styles }) {
+
+export default function SignIn({ styles, signInHandler }) {
     const [buttonSignIn, setButtonSignIn] = useState('')
     const [footerProps, setFooterProps] = useState([])
     const [loading, setLoading] = useState(true)
@@ -68,7 +71,7 @@ export default function SignIn({ styles }) {
         }
     }, [])
 
-    // const router = useRouter()
+    const router = useRouter()
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -86,6 +89,7 @@ export default function SignIn({ styles }) {
     
         if (email === "" || password === "") {
             errorMessage("Email atau password tidak boleh kosong!")
+            setDisabled("")
             return setShow(true)
         }
         
@@ -99,38 +103,17 @@ export default function SignIn({ styles }) {
         formData.forEach(function (value, key) {
             object[key] = value;
         });
-    
-        object['fcm_token'] = await localforage.getItem('fcm_token')
-    
-        object['recaptchaResponse'] = await recaptchaRef.current.executeAsync();
-    
+
         try {
-            const response = await fetch('/api/authentication/login',{
-                body: JSON.stringify(object),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'POST',
-            });
-    
-            const data = await response.json()
-    
-            saveToLocalStorage(data?.name)
-    
-            saveToLocalStorageRole(data?.role)
-            
-            if (data?.code === 200) {
-                toast(data?.message, { hideProgressBar: true, autoClose: 2000, type: 'success' })
-                return router.push('/')
-            } else {
-                recaptchaRef.current.reset();
+            const res = await signInHandler(object)
+            if (res?.code !== 200) {
+                errorMessage(res?.message)
                 setDisabled("")
-                toast(data?.message, { hideProgressBar: true, autoClose: 2000, type: 'error' })
+                return setShow(true)
             }
+            router.push('/')
         } catch (error) {
-            recaptchaRef.current.reset();
             setDisabled("")
-            toast(error?.message, { hideProgressBar: true, autoClose: 2000, type: 'error' })
         }
     }
     
@@ -160,7 +143,7 @@ export default function SignIn({ styles }) {
                                 </Form.Group>
                                 <Form.Group>
                                     <div className="flex items-center justify-between">
-                                        <ComponentButton props={buttonSignIn} />
+                                        <ComponentButton props={buttonSignIn} disabled={disabled} />
                                         <Link className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" style={{ 'textDecoration': 'none' }} href='https://dermatecno.com/web/reset_password'>
                                             Lupa Kata Sandi?
                                         </Link>

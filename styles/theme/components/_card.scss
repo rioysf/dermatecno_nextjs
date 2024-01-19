@@ -9,3 +9,21 @@
     border: 0px;
     border-radius: $border-radius-lg;
 }
+
+.card-transparant-border {
+    border: 1px solid #ECECEE !important;
+    box-shadow: none !important;
+}
+
+.card-transparant-no-shadow {
+    margin: 36px 36px 0px 36px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.card-table {
+    margin: 36px;
+    border: 1px solid #ECECEE;
+    border-radius: 12px;
+    box-shadow: none;
+}
