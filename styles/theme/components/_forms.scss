@@ -18,3 +18,8 @@
     box-shadow: none;
   }
 }
+
+.form-required-label:after {
+  content:"*\00a0";
+  color:red;
+}

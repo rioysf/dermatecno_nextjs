@@ -15,6 +15,11 @@ import ComponentAuthFooter from './auth/footer/ComponentFooterAuth';
 import ComponentBreadcrumbs from './breadcrumb/ComponentBreadcrumbs';
 
 /*
+    Breadcrumbs
+*/
+import ComponentCardInformation from './card/ComponentCardInformation';
+
+/*
     Navbars
 */
 import ComponentNavbarVertical from './navbars/ComponentNavbarVertical';
@@ -41,11 +46,15 @@ import ComponentTable from './table/ComponentTable';
     Button
 */
 import ComponentButton from './button/ComponentButton';
+import ComponentButtonAddRemove from './button/ComponentButtonAddRemove';
+import ComponentButtonSaveCancel from './button/ComponentButtonSaveCancel';
 
 export {
     ComponentAuthFooter,
 
     ComponentBreadcrumbs,
+
+    ComponentCardInformation,
 
     ComponentNavbarVertical,
     ComponentNavbarTop,
@@ -59,4 +68,6 @@ export {
     ComponentTable,
 
     ComponentButton,
+    ComponentButtonAddRemove,
+    ComponentButtonSaveCancel,
 };

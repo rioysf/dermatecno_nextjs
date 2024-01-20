@@ -20,6 +20,7 @@ import FeaturePoli from './master-data/poli/FeaturePoli';
 import FeatureProduk from './master-data/produk/FeatureProduk';
 import FeatureRuangan from './master-data/ruangan/FeatureRuangan';
 import FeatureStaff from './master-data/staff/FeatureStaff';
+import FeatureStaffCreate from './master-data/staff/create/FeatureStaffCreate';
 
 /*
     Operational
@@ -54,6 +55,7 @@ export {
     FeatureProduk,
     FeatureRuangan,
     FeatureStaff,
+    FeatureStaffCreate,
 
     FeatureJanjiTemu,
     FeaturePenjualan,
