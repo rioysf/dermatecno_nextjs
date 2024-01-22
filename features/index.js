@@ -30,6 +30,7 @@ import FeatureStaffCreate from './master-data/staff/create/FeatureStaffCreate';
 */
 
 import FeatureJanjiTemu from './operational/janji-temu/FeatureJanjiTemu';
+import FeatureJanjiTemuCreate from './operational/janji-temu/create/FeatureJanjiTemuCreate';
 import FeaturePenjualan from './operational/penjualan/FeaturePenjualan';
 import FeatureRekamMedis from './operational/rekam-medis/FeatureRekamMedis';
 import FeatureTagihan from './operational/tagihan/FeatureTagihan';
@@ -64,6 +65,7 @@ export {
     FeatureStaffCreate,
 
     FeatureJanjiTemu,
+    FeatureJanjiTemuCreate,
     FeaturePenjualan,
     FeatureRekamMedis,
     FeatureTagihan,
