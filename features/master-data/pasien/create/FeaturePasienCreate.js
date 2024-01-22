@@ -88,13 +88,13 @@ export default function FeaturePasienCreate() {
                                                         <Form.Control className='text-black' type="text" placeholder="Akan teriisi otomatis setelah disimpan" readOnly={1}/>
                                                     </Form.Group>
                                                     <Row>
-                                                        <Col xs={12} md={6}>
+                                                        <Col xs={12} md={4}>
                                                             <Form.Group className="mb-3" controlId="date">
                                                                 <Form.Label className='fw-bold text-primary form-required-label'>Tanggal</Form.Label>
                                                                 <Form.Control className='text-black' type="date" />
                                                             </Form.Group>
                                                         </Col>
-                                                        <Col xs={12} md={6}>
+                                                        <Col xs={12} md={8}>
                                                             <Form.Group className="mb-3">
                                                                 <Form.Label className='fw-bold text-primary form-required-label'>Jenis Kelamin</Form.Label>
                                                                 <br/>

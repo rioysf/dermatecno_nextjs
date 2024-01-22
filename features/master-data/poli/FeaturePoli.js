@@ -28,7 +28,7 @@ export default function FeaturePoli() {
             Button Text
         */
         setButtonAddRemove({
-            text: 'Pasien',
+            text: 'Poli',
         })
         
         setLoading(false)

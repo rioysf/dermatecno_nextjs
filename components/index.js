@@ -47,6 +47,7 @@ import ComponentTable from './table/ComponentTable';
 */
 import ComponentButton from './button/ComponentButton';
 import ComponentButtonAddRemove from './button/ComponentButtonAddRemove';
+import ComponentButtonPay from './button/ComponentButtonPayValidateCancel';
 import ComponentButtonSaveCancel from './button/ComponentButtonSaveCancel';
 
 export {
@@ -69,5 +70,6 @@ export {
 
     ComponentButton,
     ComponentButtonAddRemove,
+    ComponentButtonPay,
     ComponentButtonSaveCancel,
 };

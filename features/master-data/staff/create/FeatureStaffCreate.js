@@ -15,7 +15,7 @@ const ComponentButtonSaveCancel = lazy(() => import('../../../../components/butt
     ssr: false,
 })
 
-export default function FeatureStaff() {
+export default function FeatureStaffCreate() {
     const [buttonAddRemove, setButtonAddRemove] = useState('')
     const [loading, setLoading] = useState(true)
 

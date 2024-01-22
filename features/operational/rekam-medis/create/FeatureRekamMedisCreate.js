@@ -15,7 +15,7 @@ const ComponentButtonSaveCancel = lazy(() => import('../../../../components/butt
     ssr: false,
 })
 
-export default function FeatureJanjiTemuCreate() {
+export default function FeatureRekamMedisCreate() {
     const [buttonAddRemove, setButtonAddRemove] = useState('')
     const [loading, setLoading] = useState(true)
 
