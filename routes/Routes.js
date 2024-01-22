@@ -70,12 +70,6 @@ export const DashboardMenu = [
 		icon: 'box',
 		link: '/produk' 
 	},
-	{ 
-		id: uuid(), 
-		title: 'Perawatan',
-		icon: 'activity',
-		link: '/perawatan' 
-	},
 	{
 		id: uuid(),
 		title: 'Operational',

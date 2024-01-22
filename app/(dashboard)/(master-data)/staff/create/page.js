@@ -27,7 +27,7 @@ import { FeatureStaffCreate } from 'features'
 
 
 export const metadata = {
-    title: 'Dermatecno Apps - Staff',
+    title: 'Dermatecno Apps - Buat Staff',
     description: 'SaaS system that designed especially for you - Aesthetic Clinic',
 }
 

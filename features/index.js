@@ -15,10 +15,13 @@ import FeatureSignIn from './auth/sign-in/FeatureSignIn';
 */
 
 import FeaturePasien from './master-data/pasien/FeaturePasien';
-import FeaturePerawatan from './master-data/perawatan/FeaturePerawatan';
+import FeaturePasienCreate from './master-data/pasien/create/FeaturePasienCreate';
 import FeaturePoli from './master-data/poli/FeaturePoli';
+import FeaturePoliCreate from './master-data/poli/create/FeaturePoliCreate';
 import FeatureProduk from './master-data/produk/FeatureProduk';
+import FeatureProdukCreate from './master-data/produk/create/FeatureProdukCreate';
 import FeatureRuangan from './master-data/ruangan/FeatureRuangan';
+import FeatureRuanganCreate from './master-data/ruangan/create/FeatureRuanganCreate';
 import FeatureStaff from './master-data/staff/FeatureStaff';
 import FeatureStaffCreate from './master-data/staff/create/FeatureStaffCreate';
 
@@ -50,10 +53,13 @@ export {
     FeatureSignIn,
 
     FeaturePasien,
-    FeaturePerawatan,
+    FeaturePasienCreate,
     FeaturePoli,
+    FeaturePoliCreate,
     FeatureProduk,
+    FeatureProdukCreate,
     FeatureRuangan,
+    FeatureRuanganCreate,
     FeatureStaff,
     FeatureStaffCreate,
 

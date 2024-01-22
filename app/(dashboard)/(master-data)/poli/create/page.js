@@ -7,15 +7,15 @@ import { Container, Col, Row } from 'react-bootstrap'
 /*
     Import Components
 */
-const ComponentPageHeadingBackground = lazy(() => import('../../../../components/page/ComponentPageHeadingBackground'), {
+const ComponentPageHeadingBackground = lazy(() => import('../../../../../components/page/ComponentPageHeadingBackground'), {
     suspense: true,
     ssr: false,
 })
-const ComponentPageHeading = lazy(() => import('../../../../components/page/ComponentPageHeading'), {
+const ComponentPageHeading = lazy(() => import('../../../../../components/page/ComponentPageHeading'), {
     suspense: true,
     ssr: false,
 })
-const ComponentBreadcrumbs = lazy(() => import('../../../../components/breadcrumb/ComponentBreadcrumbs'), {
+const ComponentBreadcrumbs = lazy(() => import('../../../../../components/breadcrumb/ComponentBreadcrumbs'), {
     suspense: true,
     ssr: false,
 })
@@ -23,16 +23,16 @@ const ComponentBreadcrumbs = lazy(() => import('../../../../components/breadcrum
 /*
     Import Feature
 */
-import { FeatureRuangan } from 'features'
+import { FeaturePoliCreate } from 'features'
 
 
 export const metadata = {
-    title: 'Dermatecno Apps - Ruangan',
+    title: 'Dermatecno Apps - Buat Poli',
     description: 'SaaS system that designed especially for you - Aesthetic Clinic',
 }
 
-export default function Ruangan() {
-    const breadcrumb = ['Beranda', 'Ruangan']
+export default function Poli() {
+    const breadcrumb = ['Beranda', 'Poli', 'Buat Poli']
     return (
         <Fragment>
             <ComponentPageHeadingBackground/>
@@ -40,13 +40,13 @@ export default function Ruangan() {
                 <Row>
                     <Col lg={12} md={12} xs={12}>
                         {/* Page Heading */}
-                        <ComponentPageHeading heading={'Ruangan'}/>
+                        <ComponentPageHeading heading={'Buat Poli'}/>
                         {/* Breadscrumb */}
                         <ComponentBreadcrumbs breadcrumb={breadcrumb} />
                     </Col>
                     <Col lg={12} md={12} xs={12} className='mt-8'>
                         {/* Feature */}
-                        <FeatureRuangan/>
+                        <FeaturePoliCreate/>
                     </Col>
                 </Row>
             </Container>
