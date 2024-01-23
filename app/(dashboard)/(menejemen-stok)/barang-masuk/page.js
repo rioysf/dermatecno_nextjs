@@ -1,8 +1,24 @@
 /*
     Import React & Next
 */
-import React, { Fragment } from 'react'
-import { Container, Col, Row } from 'react-bootstrap';
+import React, { Fragment, lazy } from 'react'
+import { Container, Col, Row } from 'react-bootstrap'
+
+/*
+    Import Components
+*/
+const ComponentPageHeadingBackground = lazy(() => import('../../../../components/page/ComponentPageHeadingBackground'), {
+    suspense: true,
+    ssr: false,
+})
+const ComponentPageHeading = lazy(() => import('../../../../components/page/ComponentPageHeading'), {
+    suspense: true,
+    ssr: false,
+})
+const ComponentBreadcrumbs = lazy(() => import('../../../../components/breadcrumb/ComponentBreadcrumbs'), {
+    suspense: true,
+    ssr: false,
+})
 
 /*
     Import Feature
@@ -15,24 +31,22 @@ export const metadata = {
     description: 'SaaS system that designed especially for you - Aesthetic Clinic',
 }
 
-export default function BarangMasuk() {
+export default function JanjiTemu() {
+    const breadcrumb = ['Beranda', 'Barang Masuk']
     return (
         <Fragment>
-            <div className="bg-primary pt-10 pb-21"></div>
-            <Container fluid className="mt-n22 px-6">
+            <ComponentPageHeadingBackground/>
+            <Container fluid className="mt-n16 px-6">
                 <Row>
                     <Col lg={12} md={12} xs={12}>
-                        {/* Page header */}
-                        <div>
-                            <div className="d-flex justify-content-between align-items-center">
-                                <div className="mb-2 mb-lg-0">
-                                    <h3 className="mb-0  text-white">Barang Masuk</h3>
-                                </div>
-                            </div>
-                        </div>
+                        {/* Page Heading */}
+                        <ComponentPageHeading heading={'Barang Masuk'}/>
+                        {/* Breadscrumb */}
+                        <ComponentBreadcrumbs breadcrumb={breadcrumb} />
                     </Col>
-                    <Col lg={12} md={12} xs={12}>
-                        <FeatureBarangMasuk />
+                    <Col lg={12} md={12} xs={12} className='mt-8'>
+                        {/* Feature */}
+                        <FeatureBarangMasuk/>
                     </Col>
                 </Row>
             </Container>
