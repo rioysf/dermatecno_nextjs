@@ -10,17 +10,14 @@ const ComponentCardInformation = lazy(() => import('../../../../components/card/
     suspense: true,
     ssr: false,
 })
-const ComponentButtonPay = lazy(() => import('../../../../components/button/ComponentButtonPayValidateCancel'), {
-    suspense: true,
-    ssr: false,
-})
-const ComponentButtonSaveCancel = lazy(() => import('../../../../components/button/ComponentButtonSaveCancel'), {
+const ComponentBadge = lazy(() => import('../../../../components/badge/ComponentBadge'), {
     suspense: true,
     ssr: false,
 })
 
-export default function FeatureBarangKeluarCreate() {
+export default function FeatureBarangKeluarDetail() {
     const [buttonAddRemove, setButtonAddRemove] = useState('')
+    const [badge, setBadge] = useState('')
     const [loading, setLoading] = useState(true)
 
     const [tipe, setSipe] = useState(false)
@@ -33,11 +30,18 @@ export default function FeatureBarangKeluarCreate() {
         setButtonAddRemove({
             text: 'Barang Keluar',
         })
+
+        setBadge({
+            text: 'Lunas',
+            variant: '#D0F5E0',
+            color: '#0D9047'
+        })
         
         setLoading(false)
 
         return () => {
             setButtonAddRemove('')
+            setBadge('')
             setLoading(true)
         }
     }, [])
@@ -102,18 +106,7 @@ export default function FeatureBarangKeluarCreate() {
                                                     <Form.Group className="mb-3" controlId="state">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Status</Form.Label>
                                                         <br/>
-                                                        <Button className='rounded-pill bg-primary mr-2 mb-2 fw-bold'>
-                                                            Draf
-                                                        </Button>
-                                                        <Button className='rounded-pill bg-secondary mr-2 mb-2 fw-bold'>
-                                                            Proses
-                                                        </Button>
-                                                        <Button className='rounded-pill bg-danger border-danger mr-2 mb-2 fw-bold'>
-                                                            Dibatalkan
-                                                        </Button>
-                                                        <Button className='rounded-pill bg-success border-success mr-2 mb-2 fw-bold'>
-                                                            Lunas
-                                                        </Button>
+                                                        <ComponentBadge props={badge} />
                                                     </Form.Group>
                                                     <Form.Group className="mb-3" controlId="date">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Tanggal Pembelian</Form.Label>
@@ -182,7 +175,6 @@ export default function FeatureBarangKeluarCreate() {
                                                                 <th className="text-black">JUMLAH</th>
                                                                 <th className="text-black">NOMINAL</th>
                                                                 <th className="text-black">SUBTOTAL</th>
-                                                                <th></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="has-data">
@@ -208,10 +200,6 @@ export default function FeatureBarangKeluarCreate() {
                                                                         <InputGroup.Text className='form-control text-black' style={{ 'maxWidth':'55px' }}>Rp</InputGroup.Text>
                                                                         <Form.Control className='text-black' type="text" placeholder="10,000,000" />
                                                                     </InputGroup>
-                                                                </td>
-                                                                <td className="align-middle">
-                                                                    <Button className='btn btn-lg btn-danger mr-2 bg-transparent text-danger' style={{ borderColor: 'transparent' }}><i className={`nav-icon fe fe-trash-2`}></i></Button>
-                                                                    <Button className="btn btn-lg bg-transparent text-primary" style={{ borderColor: 'transparent' }}><i className={`nav-icon fe fe-plus-circle`}></i></Button>
                                                                 </td>
                                                             </tr>
                                                         </tbody>

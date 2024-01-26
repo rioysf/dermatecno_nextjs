@@ -23,7 +23,7 @@ const ComponentBreadcrumbs = lazy(() => import('../../../../../components/breadc
 /*
     Import Feature
 */
-import { FeatureBarangKeluarCreate } from 'features'
+import { FeatureBarangKeluarDetail } from 'features'
 
 
 export const metadata = {
@@ -46,7 +46,7 @@ export default function JanjiTemu() {
                     </Col>
                     <Col lg={12} md={12} xs={12} className='mt-8'>
                         {/* Feature */}
-                        <FeatureBarangKeluarCreate/>
+                        <FeatureBarangKeluarDetail/>
                     </Col>
                 </Row>
             </Container>

@@ -108,7 +108,7 @@ export default function FeaturePasienCreate() {
                                                                         onChange={() => {}} // This is needed to satisfy the console warning, but it does nothing
                                                                         onClick={() => handleToggleGender('male')}
                                                                     >
-                                                                        <i className="fe fe-arrow-up-right"></i> Laki-laki
+                                                                        <i className="fe fe-gender-male"></i> Laki-laki
                                                                     </ToggleButton>
 
                                                                     <ToggleButton

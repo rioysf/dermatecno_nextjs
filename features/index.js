@@ -43,7 +43,7 @@ import FeatureTagihan from './operational/tagihan/FeatureTagihan';
 import FeatureBarangMasuk from './menejemen-stok/barang-masuk/FeatureBarangMasuk';
 import FeatureBarangMasukCreate from './menejemen-stok/barang-masuk/create/FeatureBarangMasukCreate';
 import FeatureBarangKeluar from './menejemen-stok/barang-keluar/FeatureBarangKeluar';
-import FeatureBarangKeluarCreate from './menejemen-stok/barang-keluar/create/FeatureBarangKeluarCreate';
+import FeatureBarangKeluarDetail from './menejemen-stok/barang-keluar/detail/FeatureBarangKeluarDetail';
 import FeaturePenyesuaianBarang from './menejemen-stok/penyesuaian-barang/FeaturePenyesuaianBarang';
 
 
@@ -77,7 +77,7 @@ export {
     FeatureBarangMasuk,
     FeatureBarangMasukCreate,
     FeatureBarangKeluar,
-    FeatureBarangKeluarCreate,
+    FeatureBarangKeluarDetail,
     FeaturePenyesuaianBarang,
 
     FeaturePerusahaan,

@@ -10,6 +10,10 @@ const ComponentCardInformation = lazy(() => import('../../../../components/card/
     suspense: true,
     ssr: false,
 })
+const ComponentBadge = lazy(() => import('../../../../components/badge/ComponentBadge'), {
+    suspense: false,
+    ssr: false,
+})
 const ComponentButtonPay = lazy(() => import('../../../../components/button/ComponentButtonPayValidateCancel'), {
     suspense: true,
     ssr: false,
@@ -21,6 +25,7 @@ const ComponentButtonSaveCancel = lazy(() => import('../../../../components/butt
 
 export default function FeatureBarangMasukCreate() {
     const [buttonAddRemove, setButtonAddRemove] = useState('')
+    const [badge, setBadge] = useState('')
     const [loading, setLoading] = useState(true)
 
     const [tipe, setSipe] = useState(false)
@@ -33,11 +38,18 @@ export default function FeatureBarangMasukCreate() {
         setButtonAddRemove({
             text: 'Barang Masuk',
         })
+
+        setBadge({
+            text: 'Lunas',
+            variant: '#D0F5E0',
+            color: '#0D9047'
+        })
         
         setLoading(false)
 
         return () => {
             setButtonAddRemove('')
+            setBadge('')
             setLoading(true)
         }
     }, [])
@@ -102,18 +114,7 @@ export default function FeatureBarangMasukCreate() {
                                                     <Form.Group className="mb-3" controlId="state">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Status</Form.Label>
                                                         <br/>
-                                                        <Button className='bg-white text-primary mr-2 mb-2'>
-                                                            Draf
-                                                        </Button>
-                                                        <Button className='btn-secondary text-white mr-2 mb-2'>
-                                                            Proses
-                                                        </Button>
-                                                        <Button className='btn-danger text-white mr-2 mb-2'>
-                                                            Dibatalkan
-                                                        </Button>
-                                                        <Button className='btn-success text-white border-success mr-2 mb-2'>
-                                                            Lunas
-                                                        </Button>
+                                                        <ComponentBadge props={badge}/>
                                                     </Form.Group>
                                                     <Form.Group className="mb-3" controlId="date">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Tanggal Pembelian</Form.Label>

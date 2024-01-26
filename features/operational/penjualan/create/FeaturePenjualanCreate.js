@@ -10,6 +10,14 @@ const ComponentCardInformation = lazy(() => import('../../../../components/card/
     suspense: true,
     ssr: false,
 })
+const ComponentBadge = lazy(() => import('../../../../components/badge/ComponentBadge'), {
+    suspense: true,
+    ssr: false,
+})
+const ComponentButtonAddRemoveLine = lazy(() => import('../../../../components/button/ComponentButtonAddRemoveLine'), {
+    suspense: true,
+    ssr: false,
+})
 const ComponentButtonPay = lazy(() => import('../../../../components/button/ComponentButtonPayValidateCancel'), {
     suspense: true,
     ssr: false,
@@ -21,6 +29,7 @@ const ComponentButtonSaveCancel = lazy(() => import('../../../../components/butt
 
 export default function FeaturePenjualanCreate() {
     const [buttonAddRemove, setButtonAddRemove] = useState('')
+    const [badge, setBadge] = useState('')
     const [loading, setLoading] = useState(true)
 
     const [tipe, setSipe] = useState(false)
@@ -33,11 +42,18 @@ export default function FeaturePenjualanCreate() {
         setButtonAddRemove({
             text: 'Staff',
         })
+
+        setBadge({
+            text: 'Lunas',
+            variant: '#D0F5E0',
+            color: '#0D9047'
+        })
         
         setLoading(false)
 
         return () => {
             setButtonAddRemove('')
+            setBadge('')
             setLoading(true)
         }
     }, [])
@@ -102,18 +118,7 @@ export default function FeaturePenjualanCreate() {
                                                     <Form.Group className="mb-3" controlId="state">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Status</Form.Label>
                                                         <br/>
-                                                        <Button className='bg-white text-primary mr-2 mb-2'>
-                                                            Draf
-                                                        </Button>
-                                                        <Button className='btn-secondary text-white mr-2 mb-2'>
-                                                            Proses
-                                                        </Button>
-                                                        <Button className='btn-danger text-white mr-2 mb-2'>
-                                                            Dibatalkan
-                                                        </Button>
-                                                        <Button className='btn-success text-white border-success mr-2 mb-2'>
-                                                            Lunas
-                                                        </Button>
+                                                        <ComponentBadge props={badge} />
                                                     </Form.Group>
                                                     <Form.Group className="mb-3" controlId="date">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Tanggal Pembelian</Form.Label>
@@ -210,8 +215,7 @@ export default function FeaturePenjualanCreate() {
                                                                     </InputGroup>
                                                                 </td>
                                                                 <td className="align-middle">
-                                                                    <Button className='btn btn-lg btn-danger mr-2 bg-transparent text-danger' style={{ borderColor: 'transparent' }}><i className={`nav-icon fe fe-trash-2`}></i></Button>
-                                                                    <Button className="btn btn-lg bg-transparent text-primary" style={{ borderColor: 'transparent' }}><i className={`nav-icon fe fe-plus-circle`}></i></Button>
+                                                                    <ComponentButtonAddRemoveLine />
                                                                 </td>
                                                             </tr>
                                                         </tbody>

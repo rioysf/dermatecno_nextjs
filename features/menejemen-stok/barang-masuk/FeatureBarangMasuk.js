@@ -44,14 +44,14 @@ export default function FeatureBarangMasuk() {
         <Card className="card-transparant-border">
             <Card className="card-transparant-no-shadow">
                 <Row>
-                    <Col lg={4} md={6} sm={12} xs={12} >
+                    <Col lg={5} md={6} sm={12} xs={12} >
                         <Row>
                             <Col>
                                 <ComponentButtonAddRemove props={buttonAddRemove}/>
                             </Col>
                         </Row>
                     </Col>
-                    <Col lg={4} md={6} sm={12} xs={12} >
+                    <Col lg={3} md={6} sm={12} xs={12} >
                     </Col>
                     <Col lg={4} md={6} sm={12} xs={12} >
                         <Row>

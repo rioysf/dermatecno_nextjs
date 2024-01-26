@@ -10,6 +10,12 @@
 import ComponentAuthFooter from './auth/footer/ComponentFooterAuth';
 
 /*
+    Badge
+*/
+
+import ComponentBadge from './badge/ComponentBadge';
+
+/*
     Breadcrumbs
 */
 import ComponentBreadcrumbs from './breadcrumb/ComponentBreadcrumbs';
@@ -47,11 +53,14 @@ import ComponentTable from './table/ComponentTable';
 */
 import ComponentButton from './button/ComponentButton';
 import ComponentButtonAddRemove from './button/ComponentButtonAddRemove';
+import ComponentButtonAddRemoveLine from './button/ComponentButtonAddRemoveLine';
 import ComponentButtonPay from './button/ComponentButtonPayValidateCancel';
 import ComponentButtonSaveCancel from './button/ComponentButtonSaveCancel';
 
 export {
     ComponentAuthFooter,
+
+    ComponentBadge,
 
     ComponentBreadcrumbs,
 
@@ -70,6 +79,7 @@ export {
 
     ComponentButton,
     ComponentButtonAddRemove,
+    ComponentButtonAddRemoveLine,
     ComponentButtonPay,
     ComponentButtonSaveCancel,
 };

@@ -96,7 +96,10 @@ export default function FeatureJanjiTemuCreate() {
                                                                 onChange={() => {}} // This is needed to satisfy the console warning, but it does nothing
                                                                 onClick={() => handleToggleGender('male')}
                                                             >
-                                                                Sudah Bayar
+                                                                <p className='text-left fw-bold'><i className='fe fe-check-circle'></i>  Sudah Bayar</p>
+                                                                <p className='text-left'>
+                                                                    Customer sudah membayar DP terlebih dahulu
+                                                                </p>
                                                             </ToggleButton>
 
                                                             <ToggleButton
@@ -108,7 +111,10 @@ export default function FeatureJanjiTemuCreate() {
                                                                 onChange={() => {}} // This is needed to satisfy the console warning, but it does nothing
                                                                 onClick={() => handleToggleGender('female')}
                                                             >
-                                                                Belum Bayar
+                                                                <p className='text-left fw-bold'><i className='fe fe-check-circle'></i> Belum Bayar</p>
+                                                                <p className='text-left'>
+                                                                    Customer belum membayar DP terlebih dahulu
+                                                                </p>
                                                             </ToggleButton>
                                                         </ButtonGroup>
                                                     </Form.Group>
@@ -168,7 +174,7 @@ export default function FeatureJanjiTemuCreate() {
                                     <Card.Body>
                                         <Row>
                                             <Col xs={12} md={12}>
-                                                {tipe ? (
+                                                {gender === 'male' ? (
                                                     <>
                                                         <div className='mb-5 p-3 text-primary rounded' style={{
                                                             width: '280px',
@@ -271,7 +277,7 @@ export default function FeatureJanjiTemuCreate() {
                                     <Card.Body>
                                         <Row>
                                             <Col xs={12} md={12}>
-                                                {tipe ? (
+                                                {gender === 'male' ? (
                                                     <>
                                                         <Card>
                                                             <Table responsive className="table table-striped text-nowrap">

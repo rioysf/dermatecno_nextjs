@@ -10,6 +10,10 @@ const ComponentCardInformation = lazy(() => import('../../../../components/card/
     suspense: true,
     ssr: false,
 })
+const ComponentButtonAddRemoveLine = lazy(() => import('../../../../components/button/ComponentButtonAddRemoveLine'), {
+    suspense: true,
+    ssr: false,
+})
 const ComponentButtonSaveCancel = lazy(() => import('../../../../components/button/ComponentButtonSaveCancel'), {
     suspense: true,
     ssr: false,
@@ -260,8 +264,7 @@ export default function FeatureProdukCreate() {
                                                                             </InputGroup>
                                                                         </td>
                                                                         <td className="align-middle">
-                                                                            <Button className='btn btn-lg btn-danger mr-2 bg-transparent text-danger' style={{ borderColor: 'transparent' }}><i className={`nav-icon fe fe-trash-2`}></i></Button>
-                                                                            <Button className="btn btn-lg bg-transparent text-primary" style={{ borderColor: 'transparent' }}><i className={`nav-icon fe fe-plus-circle`}></i></Button>
+                                                                            <ComponentButtonAddRemoveLine />
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
