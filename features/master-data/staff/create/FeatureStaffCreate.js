@@ -145,6 +145,10 @@ export default function FeatureStaffCreate() {
                                                     </Form.Group>
                                                 </Col>
                                                 <Col xs={12} md={6}>
+                                                    <Form.Group className="mb-3" controlId="identification_number">
+                                                        <Form.Label className='fw-bold text-primary'>No. KTP</Form.Label>
+                                                        <Form.Control className='text-black' type="text" placeholder="327xxxxxxxxx" />
+                                                    </Form.Group>
                                                     <Form.Group className="mb-3" controlId="email">
                                                         <Form.Label className='fw-bold text-primary form-required-label'>Email</Form.Label>
                                                         <Form.Control className='text-black' type="email" placeholder="name@example.com" />
@@ -254,7 +258,7 @@ export default function FeatureStaffCreate() {
                                                                 </Form.Group>
                                                             )}
                                                              <Form.Group className="mb-3" controlId="note">
-                                                                <Form.Label className='fw-bold text-primary form-required-label'>Catatan</Form.Label>
+                                                                <Form.Label className='fw-bold text-primary'>Catatan</Form.Label>
                                                                 <Form.Control className='text-black' as="textarea" rows={3} placeholder="Catatan"/>
                                                             </Form.Group>
                                                         </Col>
@@ -284,7 +288,7 @@ export default function FeatureStaffCreate() {
                                     <Card.Body>
                                         <Row>
                                             <Col xs={12} md={12}>
-                                                {tipe ? (
+                                                {(tipe && type !== 'admin') ? (
                                                     <>
                                                         <div className='mb-5 p-3 text-primary rounded' style={{
                                                             width: '280px',

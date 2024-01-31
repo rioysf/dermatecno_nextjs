@@ -19,7 +19,15 @@ const ComponentButtonSaveCancel = lazy(() => import('../../../../components/butt
     ssr: false,
 })
 
+/*
+    Import Utils
+*/
+import CurrenciesUtility  from '@/utils/currencies-utility'
+
+
 export default function FeatureProdukCreate() {
+    const currencies_utility = new CurrenciesUtility
+
     const [buttonAddRemove, setButtonAddRemove] = useState('')
     const [loading, setLoading] = useState(true)
 
@@ -171,7 +179,7 @@ export default function FeatureProdukCreate() {
                                                             <Form.Label className='fw-bold text-primary form-required-label'>Harga Jual</Form.Label>
                                                             <InputGroup>
                                                                 <InputGroup.Text className='form-control text-black' style={{ 'maxWidth':'55px' }}>Rp</InputGroup.Text>
-                                                                <Form.Control className='text-black' type="text" placeholder="10,000,000" />
+                                                                <Form.Control className='text-black' type="text" placeholder="10,000,000" onChange={(e) => console.log(currencies_utility.formatStringToDotSeparator(e.target.value))}/>
                                                             </InputGroup>
                                                         </Form.Group>
                                                     </Col>

@@ -3,15 +3,13 @@
 /*
     Import React & Next
 */
-import React, { useEffect, useState, lazy } from 'react'
+import React, { lazy } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 
 /*
     Import Utils
 */
-import DateUtility  from '@/utils/date-utility'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, Button, Form } from 'react-bootstrap'
 
@@ -34,89 +32,28 @@ const ComponentSkeletonAuth = lazy(() => import('../../../components/auth/skelet
     ssr: false,
 })
 
+/*
+    Import Logic
+*/
+
+import FeatureSignInLogic from './FeatureSignInLogic'
 
 
 export default function SignIn({ styles, signInHandler }) {
-    const [buttonSignIn, setButtonSignIn] = useState('')
-    const [footerProps, setFooterProps] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        /*
-            Button Text
-        */
-        setButtonSignIn({
-            text: 'Masuk',
-            type: 'submit'
-        })
-
-        /*
-            Footer Detail
-        */
-        const date_utility = new DateUtility
-        let footer_year = '© ' + date_utility.getCurrentDate().getFullYear().toString()
-        let footer_description = "Dermatecno. All rights reserved."
-
-        setFooterProps({
-            footer_year,
-            footer_description
-        })
-        
-        setLoading(false)
-
-        return () => {
-            setButtonSignIn('')
-            setFooterProps([])
-            setLoading(true)
-        }
-    }, [])
-
-    const router = useRouter()
-
-	const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
-
-    const [show, setShow] = useState(false)
-	const [error, errorMessage] = useState("")
-	const [disabled, setDisabled] = useState("")
-
-    const doSignIn = async (e) => {
-        setShow(false)
-        errorMessage("")
-        setDisabled("disabled")
-    
-        e.preventDefault();
-    
-        if (email === "" || password === "") {
-            errorMessage("Email atau password tidak boleh kosong!")
-            setDisabled("")
-            return setShow(true)
-        }
-        
-        const formData = new FormData();
-    
-        formData.append('login', email);
-        formData.append('password', password);
-    
-        const object = {};
-    
-        formData.forEach(function (value, key) {
-            object[key] = value;
-        });
-
-        try {
-            const res = await signInHandler(object)
-            if (res?.code !== 200) {
-                errorMessage(res?.message)
-                setDisabled("")
-                return setShow(true)
-            }
-            router.push('/')
-        } catch (error) {
-            setDisabled("")
-        }
-    }
-    
+    const {
+        buttonSignIn,
+        footerProps,
+        loading,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        show,
+        setShow,
+        error,
+        disabled,
+        doSignIn
+    } = FeatureSignInLogic({signInHandler})
 
     return (
         <div className={styles.container__sign_in}>
@@ -150,9 +87,9 @@ export default function SignIn({ styles, signInHandler }) {
                                     </div>
                                 </Form.Group>
                                 <Alert className='mt-4' key="danger" variant="danger" show={show} >
-                                    <p style={{ 'fontSize': '14px' }}>
+                                    <div style={{ 'fontSize': '14px', 'whiteSpace': 'pre-line' }}>
                                         {error}
-                                    </p>
+                                    </div>
                                     <hr />
                                     <div className="d-flex justify-content-end">
                                         <Button className="btn-sm" onClick={() => setShow(false)} variant="outline-danger" >
